@@ -82,18 +82,22 @@ Studi kasus: **Kasir kantin / toko kampus**
 
 ## 🖼️ Tangkapan Layar
 
-> Screenshot diambil dari aplikasi yang berjalan di browser.
+Screenshot diambil dari aplikasi yang berjalan di browser (Chrome).
 
 ### 1. Tampilan Form Input Utama
+Form input barang + kalkulator pembayaran + tabel keranjang dalam keadaan kosong.
+
 ![Form Input Utama](screenshots/1-form-utama.png)
 
 ### 2. Tampilan Validasi Error
+Pesan peringatan merah muncul di bawah setiap input yang salah (nama < 3 karakter, harga < Rp 500, qty 0) — barang tidak masuk keranjang.
+
 ![Validasi Error](screenshots/2-validasi-error.png)
 
 ### 3. Tabel Keranjang + Hasil Kalkulator
-![Kalkulator dan Tabel](screenshots/3-kalkulator-tabel.png)
+Keranjang berisi 3 barang, promo `HEMAT10` diterapkan (diskon Rp 4.000), total akhir Rp 36.000, dan kembalian dihitung otomatis dari uang bayar Rp 50.000.
 
-> 📌 **Catatan:** ambil 3 screenshot aplikasi, simpan dengan nama file di atas ke folder `screenshots/` (buat folder baru sejajar dengan `index.html`), agar gambar tampil otomatis di README.
+![Kalkulator dan Tabel](screenshots/3-kalkulator-tabel.png)
 
 ---
 
@@ -141,7 +145,9 @@ arrayanihfanulfaqih_124140156_pertemuan1/
 ├── style.css       # Styling antarmuka + responsif
 ├── script.js       # Logika validasi, kalkulator, localStorage
 ├── README.md       # Dokumentasi tugas
-├── screenshots/    # (isi dengan 3 screenshot tugas)
+├── screenshots/    # 3 screenshot aplikasi (form, validasi error, kalkulator+tabel)
+├── scripts/        # Script pembantu (pengambilan screenshot otomatis via Chrome headless)
+├── test/           # Tes logika otomatis (26 assertions)
 └── modul/          # File latihan praktikum
 ```
 

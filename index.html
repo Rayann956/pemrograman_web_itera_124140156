@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini POS — Kasir Kantin Kampus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🛒 Mini POS — Kasir Kantin Kampus</h1>
+    <p>Aplikasi Kasir &amp; Keranjang Belanja Sederhana</p>
+  </header>
+
+  <main class="layout">
+    <!-- ============ KOLOM KIRI : FORM & KALKULATOR ============ -->
+    <section class="kolom-kiri">
+
+      <!-- Card 1: Form Input Barang -->
+      <div class="card">
+        <h2 class="card-title">➕ Form Input Barang</h2>
+        <form id="formBarang" novalidate>
+          <div class="form-group">
+            <label for="namaBarang">Nama Barang</label>
+            <input type="text" id="namaBarang" placeholder="Contoh: Buku Tulis" autocomplete="off" />
+            <small class="pesan-error" id="errorNamaBarang"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="hargaSatuan">Harga Satuan (Rp)</label>
+            <input type="number" id="hargaSatuan" placeholder="Contoh: 5000" min="0" step="100" />
+            <small class="pesan-error" id="errorHargaSatuan"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="qty">Jumlah / Qty</label>
+            <input type="number" id="qty" placeholder="Contoh: 2" min="0" step="1" />
+            <small class="pesan-error" id="errorQty"></small>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Tambah ke Keranjang</button>
+        </form>
+      </div>
+
+      <!-- Card 2: Kalkulator Pembayaran -->
+      <div class="card">
+        <h2 class="card-title">🧮 Kalkulator Pembayaran</h2>
+
+        <div class="ringkasan">
+          <div class="baris-ringkasan">
+            <span>Total Belanja</span>
+            <span id="totalBelanja">Rp 0</span>
+          </div>
+          <div class="baris-ringkasan baris-diskon">
+            <span>Diskon</span>
+            <span id="diskon">Rp 0</span>
+          </div>
+          <div class="baris-ringkasan baris-total-akhir">
+            <span>Total Akhir</span>
+            <span id="totalAkhir">Rp 0</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="kodePromo">Kode Promo</label>
+          <div class="baris-promo">
+            <input type="text" id="kodePromo" placeholder="Coba: HEMAT10" autocomplete="off" />
+            <button type="button" id="btnPromo" class="btn btn-secondary">Terapkan</button>
+          </div>
+          <small class="pesan-info" id="infoPromo"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="uangBayar">Uang Bayar (Rp)</label>
+          <input type="number" id="uangBayar" placeholder="Masukkan nominal uang diterima" min="0" step="500" />
+        </div>
+
+        <div class="baris-ringkasan baris-kembalian">
+          <span>Kembalian</span>
+          <span id="kembalian">Rp 0</span>
+        </div>
+        <small class="pesan-error" id="infoKembalian"></small>
+
+        <button type="button" id="btnReset" class="btn btn-danger btn-full">🔄 Transaksi Baru / Reset</button>
+      </div>
+    </section>
+
+    <!-- ============ KOLOM KANAN : TABEL KERANJANG ============ -->
+    <section class="kolom-kanan">
+      <div class="card">
+        <h2 class="card-title">🧾 Keranjang Belanja</h2>
+        <div class="tabel-wrapper">
+          <table id="tabelKeranjang">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th>Harga Satuan</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="isiTabel">
+              <!-- Diisi otomatis oleh JavaScript -->
+            </tbody>
+          </table>
+          <p id="keranjangKosong" class="keranjang-kosong">
+            Keranjang masih kosong. Yuk tambahkan barang! 🍔
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Arrayan Ihfanul Faqih — 124140156 — RA | Praktikum Pemrograman Web ITERA</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

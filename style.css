@@ -1,0 +1,343 @@
+/* ============================================================
+   MINI POS — KASIR KANTIN KAMPUS
+   Styling antarmuka — Arrayan Ihfanul Faqih (124140156) — RA
+   ============================================================ */
+
+/* ---------- RESET & VARIABEL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hijau-tua: #1b5e20;
+  --hijau: #2e7d32;
+  --hijau-muda: #e8f5e9;
+  --merah: #d32f2f;
+  --merah-muda: #fff5f5;
+  --biru: #1565c0;
+  --abu-teks: #5f6368;
+  --abu-border: #d9d9d9;
+  --latar: #f2f5f7;
+  --putih: #ffffff;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  background: var(--latar);
+  color: #333;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- HEADER & FOOTER ---------- */
+.app-header {
+  background: linear-gradient(135deg, var(--hijau-tua), var(--hijau));
+  color: var(--putih);
+  text-align: center;
+  padding: 24px 16px;
+  box-shadow: var(--shadow);
+}
+
+.app-header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.app-header p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: var(--abu-teks);
+}
+
+/* ---------- LAYOUT UTAMA ---------- */
+.layout {
+  flex: 1;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.kolom-kiri {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: var(--putih);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: var(--hijau-tua);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--hijau-muda);
+}
+
+/* ---------- FORM ---------- */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--abu-border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--hijau);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+/* Kondisi error pada input */
+.form-group input.input-error {
+  border-color: var(--merah);
+  background: var(--merah-muda);
+}
+
+.form-group input.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
+}
+
+/* Pesan feedback validasi (merah, di bawah input) */
+.pesan-error {
+  display: block;
+  color: var(--merah);
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-height: 1.1em;
+  margin-top: 4px;
+}
+
+/* Pesan informasi promo (netral, jadi hijau saat diskon aktif) */
+.pesan-info {
+  display: block;
+  color: var(--abu-teks);
+  font-size: 0.82rem;
+  min-height: 1.1em;
+  margin-top: 4px;
+}
+
+.pesan-info.aktif {
+  color: var(--hijau);
+  font-weight: 600;
+}
+
+/* ---------- TOMBOL ---------- */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--putih);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.05s;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--hijau);
+}
+
+.btn-secondary {
+  background: var(--biru);
+}
+
+.btn-danger {
+  background: var(--merah);
+}
+
+.btn-hapus {
+  background: var(--merah);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+/* ---------- KALKULATOR / RINGKASAN ---------- */
+.ringkasan {
+  margin-bottom: 16px;
+}
+
+.baris-ringkasan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px;
+  border-bottom: 1px dashed var(--abu-border);
+  font-size: 0.95rem;
+}
+
+.baris-ringkasan span:last-child {
+  font-weight: 600;
+}
+
+.baris-diskon span:last-child {
+  color: var(--merah);
+}
+
+.baris-total-akhir {
+  border-bottom: none;
+  background: var(--hijau-muda);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.baris-total-akhir span:last-child {
+  color: var(--hijau-tua);
+  font-size: 1.15rem;
+}
+
+.baris-kembalian {
+  border-bottom: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.baris-kembalian span:last-child {
+  color: var(--hijau-tua);
+}
+
+.baris-kembalian span:last-child.kurang {
+  color: var(--merah);
+}
+
+.baris-promo {
+  display: flex;
+  gap: 8px;
+}
+
+.baris-promo input {
+  flex: 1;
+}
+
+.baris-promo .btn {
+  flex-shrink: 0;
+}
+
+/* ---------- TABEL KERANJANG ---------- */
+.tabel-wrapper {
+  overflow-x: auto;
+}
+
+#tabelKeranjang {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+#tabelKeranjang thead th {
+  background: var(--hijau);
+  color: var(--putih);
+  padding: 10px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+#tabelKeranjang tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+#tabelKeranjang tbody tr:hover {
+  background: #f6fbf6;
+}
+
+.kolom-angka {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.kolom-qty {
+  text-align: center;
+}
+
+.kolom-aksi {
+  text-align: center;
+}
+
+.kolom-subtotal {
+  font-weight: 700;
+  color: var(--hijau-tua);
+}
+
+.keranjang-kosong {
+  display: none;
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--abu-teks);
+  font-style: italic;
+}
+
+/* ---------- RESPONSIF ---------- */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+  }
+
+  #tabelKeranjang thead th,
+  #tabelKeranjang tbody td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}
